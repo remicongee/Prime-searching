@@ -1,0 +1,34 @@
+/*
+**********************************************
+** Tips for running prime searching program **
+**********************************************
+*/
+
+In order that *.o files are well compiled, type command:
+  $ make all
+in your terminal.
+If you want to clean these *.o files, type
+  $ make clean
+
+Once compilation is well done, type in terminal :
+  $ ./run.sh PATH
+where "PATH" is the path of hosts file containing nodes.
+This parameter is exactly what we use in command:
+  $ mpirun -np N -f PATH CODE
+
+NOTE: Please execute run.sh in the folder of source code.
+
+When run.sh is run, it will give instructions for further
+settings such as number of process, range of primes, etc.
+
+Here is an example:
+
+input:
+	parallels@node1:/media/psf/project/Project2Code$ make all
+output:	mpicc prime.c -lm -o prime.o	mpicc primeUp.c -lm -o primeUp.o	mpicc naive.c -lm -o naive.o	Compile completed.	chmod a+x ./run.sh
+
+input: (./run.sh PATH)	parallels@node1:/media/psf/project/Project2Code$ ./run.sh /home/parallels/	
+	mpich-install/hostfile1
+
+output instructions:	Please choose version of searching primes program:	0--prime broadcast(naive) 1--replicate preprocess, 2--eliminate even numbers.	0	Please enter an integer larger than 1 for range of primes: 	100	Primes will be displayed?	0--count, 1--display	1	Please set process number:	3	Multiple nodes required.output：
+	Primes will be dispalyed.	Start searching primes less than or equal to 100.	2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 	25 primes are less than or equal to 100	Total elapsed time:   0.008039
