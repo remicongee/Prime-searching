@@ -1,2 +1,9 @@
 # Prime-searching
-Mainly implement prime searching with MPI
+
+## Implementation of prime searching (with [MPI](http://www.mpich.org/))
+  * naive (sequential)
+  * replication
+  * eliminate even numbers
+ 
+## Run
+see run_tips.txt
